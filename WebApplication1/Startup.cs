@@ -50,20 +50,32 @@ namespace WebApplication1
             //});
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(); // Bu bizim wwwroot daki bootstrap jquery kütüphanesini kullanmamýzý saðlar.
 
             app.UseRouting();
 
             app.UseAuthorization();
 
             //KSoft_Ahk_start
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Home}/{action=Index}/{id?}");
+            //});
+            //KSoft_Ahk_end
+
+            //KSoft_Ahk_start
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name: "MyRoute",
+                            pattern: "Ahmet/{*deger}",
+                            defaults: new { controller = "Home", action = "RazorDemo" });
+                endpoints.MapControllerRoute(name: "default",
+                            pattern: "{controller=Home}/{action=Index}/{id?}");
             });
             //KSoft_Ahk_end
+
 
             app.UseEndpoints(endpoints =>
             {
