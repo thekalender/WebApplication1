@@ -13,5 +13,6 @@ namespace WebApplication1.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int CityId { get; set; }
+        //deneme
     }
 }
