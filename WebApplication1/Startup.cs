@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Services.Logging;
 
 namespace WebApplication1
 {
@@ -25,6 +26,8 @@ namespace WebApplication1
         {
             services.AddRazorPages();
             services.AddMvc();
+
+            services.AddSingleton<ILogger, DataBaseLogger>();  //Dependency Injection
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,9 +71,13 @@ namespace WebApplication1
             //KSoft_Ahk_start
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(name: "MyRoute",
+                endpoints.MapControllerRoute(name: "admin",
+                           pattern: "admin/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(name: "Ahmet",
                             pattern: "Ahmet/{*deger}",
                             defaults: new { controller = "Home", action = "RazorDemo" });
+
                 endpoints.MapControllerRoute(name: "default",
                             pattern: "{controller=Home}/{action=Index}/{id?}");
             });

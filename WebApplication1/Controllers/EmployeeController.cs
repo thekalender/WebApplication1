@@ -5,11 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Entities;
+using WebApplication1.Services.Logging;
 
 namespace WebApplication1.Controllers
 {
     public class EmployeeController : Controller
     {
+        //Dependency Injection
+        private ILogger _logger;
+        public EmployeeController(ILogger logger)
+        {
+            _logger = logger;
+        }
+        //Dependency Injection
         public IActionResult Add()
         {
             var employeeAddViewModel = new EmployeeAddViewModel

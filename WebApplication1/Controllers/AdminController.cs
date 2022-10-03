@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.Controllers
 {
-    [Route("admin")]
+    [Route("admin")] // Buna attribute ruting denir
     public class AdminController : Controller
     {
         [Route("")]
@@ -15,13 +15,13 @@ namespace WebApplication1.Controllers
             return "Saved";
         }
 
-        [Route("Delete/{id?}")]
+        [Route("Delete/{id?}")] // Buna attribute ruting denir
         public string Delete(int id)
         {
             return string.Format("Deleted {0}",id);
         }
 
-        [Route("Update")]
+        [Route("Update")] // Buna attribute ruting denir
         public string Update()
         {
             return "Updated";

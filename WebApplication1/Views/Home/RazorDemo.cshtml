@@ -1,8 +1,8 @@
 ﻿@model WebApplication1.EmployeeListViewModel 
 
-@{
+@*@{
     Layout = null;
-}
+}*@
 
 <!DOCTYPE html>
 
@@ -45,7 +45,7 @@
 
     <p> 3 Day ago was - @date</p>
 
-    @{ 
+    @{
         var number = 10;
     }
 
@@ -53,7 +53,7 @@
     {
         <p>Sayınız 10 dan büyüktür.</p>
     }
-    else if(number == 10)
+    else if (number == 10)
     {
         <p>Sayınız 10'a eşittir.</p>
     }
@@ -65,4 +65,8 @@
     <a class="btn btn-success" href">Click</a>
 
 </body>
+@section MySection
+{
+    Sayfaya özel scriptlerde kullanılır.
+}
 </html>
