@@ -28,6 +28,8 @@ namespace WebApplication1
             services.AddMvc();
 
             services.AddSingleton<ILogger, DataBaseLogger>();  //Dependency Injection
+
+            services.AddSession(); //KSoft Session
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +56,8 @@ namespace WebApplication1
 
             app.UseHttpsRedirection();
             app.UseStaticFiles(); // Bu bizim wwwroot daki bootstrap jquery kütüphanesini kullanmamýzý saðlar.
+
+            app.UseSession(); //KSoft Session
 
             app.UseRouting();
 
